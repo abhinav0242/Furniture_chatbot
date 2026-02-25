@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-from app.router import router
 
-app = FastAPI(title="Furniture Chatbot")
-
-app.include_router(router)
+app = FastAPI()
 
 @app.get("/")
-def health():
-    return {"status": "Running"}
+def home():
+    return {"status": "Furniture chatbot running"}
+
+@app.post("/chat")
+def chat():
+    return {"message": "Chat endpoint working"}
